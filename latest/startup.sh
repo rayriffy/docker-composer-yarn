@@ -69,4 +69,4 @@ fi
 # sleep 5
 
 # echo '[i] start running mysqld'
-# exec /usr/bin/mysqld --user=mysql --console
+exec /usr/bin/mysqld --user=mysql --console

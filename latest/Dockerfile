@@ -21,5 +21,7 @@ RUN apk update && \
     rm -rf /var/cache/apk/*
 
 COPY ./startup.sh /scripts/startup.sh
-RUN chmod +x /scripts/startup.sh && \
-    /scripts/startup.sh
+
+RUN chmod +x /scripts/startup.sh
+
+CMD /scripts/startup.sh
