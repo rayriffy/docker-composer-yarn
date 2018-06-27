@@ -1,12 +1,21 @@
 FROM php:7.2.6-fpm-alpine3.7
 
-RUN docker-php-ext-install pdo pdo_mysql && \
+RUN docker-php-ext-install pdo pdo_mysql curl mbstring xml xmlwriter tokenizer ctype json && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     apk update && \
     apk --no-cache add tar nodejs yarn && \
-    apk add mysql mysql-client && \
+    apk add mysql mysql-client libpng-dev gcc make alpine-sdk && \
     addgroup mysql mysql && \
     mkdir /scripts && \
+    apk add --update \
+        bash \
+        lcms2-dev \
+        libpng-dev \
+        gcc \
+        g++ \
+        make \
+        autoconf \
+        automake && \
     rm -rf /var/cache/apk/*
 
 COPY ./startup.sh /scripts/startup.sh
