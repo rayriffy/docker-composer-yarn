@@ -1,10 +1,22 @@
 FROM alpine:latest
 
 RUN apk update && \
-    apk --no-cache add php7 php7-json php7-mbstring php7-ctype php7-openssl php7-pdo php7-tokenizer php7-xml tar nodejs yarn && \
+    apk --update add wget \ 
+    	curl \
+    	git \
+    	php7 \
+    	php7-curl \
+    	php7-openssl \
+    	php7-iconv \
+    	php7-json \
+    	php7-mbstring \
+    	php7-phar \
+    	php7-dom --repository http://nl.alpinelinux.org/alpine/edge/testing/ && rm /var/cache/apk/* && \
+    ln -s /usr/bin/php7 /usr/bin/php && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
+    apk --no-cache add tar nodejs yarn && \
     apk add mysql mysql-client && \
     addgroup mysql mysql && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     mkdir /scripts && \
     rm -rf /var/cache/apk/*
 
