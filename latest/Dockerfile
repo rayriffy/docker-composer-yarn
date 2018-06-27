@@ -1,12 +1,12 @@
 FROM alpine:latest
 
 RUN apk update && \
-    apk --no-cache add php7 php7-json php7-mbstring php7-ctype php7-openssl php7-pdo php7-tokenizer php7-xml composer tar nodejs yarn && \
-	apk add mysql mysql-client && \
-	addgroup mysql mysql && \
-	mkdir /scripts && \
-	rm -rf /var/cache/apk/* && \
-    rm -rf rm /var/cache/apk/*
+    apk --no-cache add php7 php7-json php7-mbstring php7-ctype php7-openssl php7-pdo php7-tokenizer php7-xml tar nodejs yarn && \
+    apk add mysql mysql-client && \
+    addgroup mysql mysql && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
+    mkdir /scripts && \
+    rm -rf /var/cache/apk/*
 
 VOLUME ["/var/lib/mysql"]
 
