@@ -14,6 +14,7 @@ RUN apk update && \
     	php7-dom --repository http://nl.alpinelinux.org/alpine/edge/testing/ && rm /var/cache/apk/* && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     apk --no-cache add tar nodejs yarn && \
+    apk update && \
     apk add mysql mysql-client && \
     addgroup mysql mysql && \
     mkdir /scripts && \
