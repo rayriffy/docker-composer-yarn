@@ -9,6 +9,7 @@ RUN apk update && \
     	php7-openssl \
     	php7-iconv \
         php7-xml \
+        php7-pdo \
         php7-tokenizer \
         php7-xmlwriter \
     	php7-json \
