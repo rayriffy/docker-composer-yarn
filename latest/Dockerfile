@@ -6,9 +6,7 @@ RUN apk update && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     apk update && \
     apk --no-cache add tar nodejs yarn && \
-    apk add mysql mysql-client libpng-dev gcc make alpine-sdk && \
-    addgroup mysql mysql && \
-    mkdir /scripts && \
+    apk add libpng-dev gcc make alpine-sdk && \
     apk add --update \
         bash \
         lcms2-dev \
@@ -19,9 +17,3 @@ RUN apk update && \
         autoconf \
         automake && \
     rm -rf /var/cache/apk/*
-
-COPY ./startup.sh /scripts/startup.sh
-
-RUN chmod +x /scripts/startup.sh
-
-CMD /scripts/startup.sh
