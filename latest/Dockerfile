@@ -19,7 +19,7 @@ RUN apk update && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     apk --no-cache add tar nodejs yarn && \
     apk update && \
-    apk add mysql mysql-client && \
+    apk add mysql mysql-client libpng-dev gcc make alpine-sdk && \
     addgroup mysql mysql && \
     mkdir /scripts && \
     rm -rf /var/cache/apk/*
