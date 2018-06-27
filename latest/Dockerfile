@@ -22,4 +22,4 @@ RUN apk update && \
 
 COPY ./startup.sh /scripts/startup.sh
 RUN chmod +x /scripts/startup.sh && \
-    /sceipts/startup.sh
+    /scripts/startup.sh
