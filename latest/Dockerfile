@@ -1,6 +1,8 @@
 FROM php:7.2.6-fpm-alpine3.7
 
-RUN docker-php-ext-install pdo pdo_mysql curl mbstring xml xmlwriter tokenizer ctype json && \
+RUN apk update && \
+    apk --no-cache add curl && \
+    docker-php-ext-install pdo pdo_mysql curl mbstring xml xmlwriter tokenizer ctype json && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     apk update && \
     apk --no-cache add tar nodejs yarn && \
