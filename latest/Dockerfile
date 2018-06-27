@@ -22,6 +22,15 @@ RUN apk update && \
     apk add mysql mysql-client libpng-dev gcc make alpine-sdk && \
     addgroup mysql mysql && \
     mkdir /scripts && \
+    apk add --update \
+    bash \
+    lcms2-dev \
+    libpng-dev \
+    gcc \
+    g++ \
+    make \
+    autoconf \
+    automake && \
     rm -rf /var/cache/apk/*
 
 VOLUME ["/var/lib/mysql"]
