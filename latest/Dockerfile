@@ -8,6 +8,9 @@ RUN apk update && \
     	php7-curl \
     	php7-openssl \
     	php7-iconv \
+        php7-xml \
+        php7-tokenizer \
+        php7-xmlwriter \
     	php7-json \
     	php7-mbstring \
     	php7-phar \
