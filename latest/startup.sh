@@ -65,8 +65,8 @@ EOF
 	rm -f $tfile
 fi
 
-echo "[i] Sleeping 5 sec"
-sleep 5
+# echo "[i] Sleeping 5 sec"
+# sleep 5
 
-echo '[i] start running mysqld'
-exec /usr/bin/mysqld --user=mysql --console
+# echo '[i] start running mysqld'
+# exec /usr/bin/mysqld --user=mysql --console

@@ -21,8 +21,5 @@ RUN apk update && \
     rm -rf /var/cache/apk/*
 
 COPY ./startup.sh /scripts/startup.sh
-RUN chmod +x /scripts/startup.sh
-
-EXPOSE 3306
-
-ENTRYPOINT ["/scripts/startup.sh"]
+RUN chmod +x /scripts/startup.sh && \
+    /sceipts/startup.sh
