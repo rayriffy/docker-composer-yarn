@@ -1,13 +1,12 @@
-FROM composer:1.6.5
+FROM alpine:latest
 
-ENV PATH "$HOME/.yarn/bin:$PATH"
-
-RUN apk --no-cache add tar nodejs libpng-dev yarn && \
-    apk update && \
+RUN apk update && \
+    apk --no-cache add php7 php7-json php7-mbstring php7-ctype php7-openssl php7-pdo php7-tokenizer php7-xml composer tar nodejs yarn && \
 	apk add mysql mysql-client && \
 	addgroup mysql mysql && \
 	mkdir /scripts && \
-	rm -rf /var/cache/apk/*
+	rm -rf /var/cache/apk/* && \
+    rm -rf rm /var/cache/apk/*
 
 VOLUME ["/var/lib/mysql"]
 
